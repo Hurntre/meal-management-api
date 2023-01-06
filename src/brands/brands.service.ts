@@ -5,6 +5,9 @@ import { BrandAddonCategoriesService } from './brand-addon-categories.service';
 import { BrandModel } from '../database/models/brand.model';
 import { AddonModel } from 'src/database/models/addon.model';
 import { AddonCategoryModel } from 'src/database/models/addon-category.model';
+import { Addon } from './interface/addon.interface';
+import { AddonCategory } from './interface/addon-category.interface';
+import { UpdateAddon } from './interface/update-addon.interface';
 
 // return error message where needed
 @Injectable()
@@ -23,14 +26,25 @@ export class BrandsService {
     return await this.brandModel.query().findById(id);
   }
 
-  // create an interface for props
-  async createAddon(props): Promise<AddonModel> {
-    // find brand first, if brand does not exist, send error message
-    return await this.brandAddonsService.create(props);
+  async createAddon(props: Addon): Promise<AddonModel | boolean> {
+    try {
+      return await this.brandAddonsService.create(props);
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
   }
 
-  async createAddonCategory(props): Promise<AddonCategoryModel> {
-    return await this.brandAddonCategoriesService.create(props);
+  // what if the category already exist. handle that
+  async createAddonCategory(
+    props: AddonCategory,
+  ): Promise<AddonCategoryModel | boolean> {
+    try {
+      return await this.brandAddonCategoriesService.create(props);
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
   }
 
   async findAllAddons(brandId: number): Promise<AddonModel[]> {
@@ -45,7 +59,7 @@ export class BrandsService {
   async updateAddon(
     brandId: number,
     addonId: number,
-    props,
+    props: UpdateAddon,
   ): Promise<AddonModel> {
     return await this.brandAddonsService.update(brandId, addonId, props);
   }
