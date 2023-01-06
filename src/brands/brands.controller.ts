@@ -10,12 +10,12 @@ import {
 } from '@nestjs/common';
 import { AddonDto } from './dto/addon.dto';
 import { AddonCategoryDto } from './dto/addon-category.dto';
+import { AddonUpdateDto } from './dto/addon-update.dto';
 import { BrandsService } from './brands.service';
 
 // TODO LIST
 // seed users (admin and non admin), then accesstoken
 // add guard to check if user is Admin.
-// add a middleware to verify input
 @Controller('brands')
 export class BrandsController {
   constructor(private brandsService: BrandsService) {}
@@ -144,7 +144,7 @@ export class BrandsController {
 
   @Patch(':brandId/addons/:addonId')
   async updateAddon(
-    @Body() updateAddonDto: AddonDto,
+    @Body() updateAddonDto: AddonUpdateDto,
     @Param('brandId', new ParseIntPipe()) brandId: number,
     @Param('addonId', new ParseIntPipe()) addonId: number,
   ) {

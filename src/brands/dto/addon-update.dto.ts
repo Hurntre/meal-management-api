@@ -1,11 +1,13 @@
-import { IsNotEmpty, IsString, IsNumber, IsOptional } from 'class-validator';
-export class AddonDto {
-  @IsNotEmpty()
+import { IsString, IsNumber, IsOptional, IsNotEmpty } from 'class-validator';
+export class AddonUpdateDto {
+  @IsOptional()
   @IsString()
+  @IsNotEmpty()
   readonly name: string;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsNumber()
+  @IsNotEmpty()
   readonly price: number;
 
   @IsOptional()
