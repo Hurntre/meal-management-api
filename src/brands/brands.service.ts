@@ -9,7 +9,6 @@ import { Addon } from './interface/addon.interface';
 import { AddonCategory } from './interface/addon-category.interface';
 import { UpdateAddon } from './interface/update-addon.interface';
 
-// return error message where needed
 @Injectable()
 export class BrandsService {
   constructor(
@@ -35,7 +34,6 @@ export class BrandsService {
     }
   }
 
-  // what if the category already exist. handle that
   async createAddonCategory(
     props: AddonCategory,
   ): Promise<AddonCategoryModel | boolean> {
