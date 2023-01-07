@@ -12,11 +12,11 @@ import { AddonDto } from './dto/addon.dto';
 import { AddonCategoryDto } from './dto/addon-category.dto';
 import { AddonUpdateDto } from './dto/addon-update.dto';
 import { BrandsService } from './brands.service';
+import { Roles } from 'src/utilities/decorators/roles.decorator';
+import { Role } from 'src/utilities/enums/role.enum';
 
-// TODO LIST
-// seed users (admin and non admin), then accesstoken
-// add guard to check if user is Admin.
 @Controller('brands')
+@Roles(Role.Admin)
 export class BrandsController {
   constructor(private brandsService: BrandsService) {}
 

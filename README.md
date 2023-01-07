@@ -70,5 +70,5 @@ $ If you\'d like to learn more about the Next framework, please [read more here]
 ## Stay in touch
 
 - Author - [Adefolaju Ariyo](https://adefolajuariyo.com)
-- LinkedIn - [Adefolaju Ariyo](https://nestjs.com/)
-- Twitter - [Adefolaju Ariyo](https://twitter.com/nestframework)
+- LinkedIn - [Adefolaju Ariyo](https://www.linkedin.com/in/adefolaju-ariyo-527a49113//)
+- Twitter - [Adefolaju Ariyo](https://twitter.com/Hurntre)
