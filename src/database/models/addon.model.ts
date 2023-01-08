@@ -8,5 +8,5 @@ export class AddonModel extends Model {
   description: string;
   price: number;
   category: string;
-  brandId: string;
+  brandId: number;
 }

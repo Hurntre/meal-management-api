@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ModelClass } from 'objection';
 import { AddonModel } from '../database/models/addon.model';
+import { Addon } from './interface/addon.interface';
 
 @Injectable()
 export class BrandAddonsService {
@@ -8,7 +9,7 @@ export class BrandAddonsService {
     @Inject('AddonModel') private addonModel: ModelClass<AddonModel>,
   ) {}
 
-  async create(props) {
+  async create(props: Addon) {
     return await this.addonModel.query().insert(props).returning('*');
   }
 
