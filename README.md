@@ -31,6 +31,13 @@ $ npm run start:dev
 
 ```
 
+## Test
+
+```bash
+# e2e tests
+$ npm run test:e2e
+```
+
 ### Endpoints
 
 ```bash
