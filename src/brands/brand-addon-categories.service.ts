@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ModelClass } from 'objection';
 import { AddonCategoryModel } from '../database/models/addon-category.model';
+import { AddonCategory } from './interface/addon-category.interface';
 
 @Injectable()
 export class BrandAddonCategoriesService {
@@ -9,7 +10,7 @@ export class BrandAddonCategoriesService {
     private addonCategoryModel: ModelClass<AddonCategoryModel>,
   ) {}
 
-  async create(props) {
+  async create(props: AddonCategory): Promise<AddonCategory> {
     return await this.addonCategoryModel.query().insert(props).returning('*');
   }
 }

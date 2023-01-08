@@ -6,8 +6,8 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { ROLES_KEY } from 'src/utilities/decorators/roles.decorator';
-import { Role } from 'src/utilities/enums/role.enum';
+import { ROLES_KEY } from '../decorators/roles.decorator';
+import { Role } from '../enums/role.enum';
 import { Users } from '../DummyUsers';
 
 @Injectable()

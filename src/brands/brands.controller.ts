@@ -13,8 +13,8 @@ import { AddonDto } from './dto/addon.dto';
 import { AddonCategoryDto } from './dto/addon-category.dto';
 import { AddonUpdateDto } from './dto/addon-update.dto';
 import { BrandsService } from './brands.service';
-import { Roles } from 'src/utilities/decorators/roles.decorator';
-import { Role } from 'src/utilities/enums/role.enum';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { Role } from '../auth/enums/role.enum';
 
 @Controller('brands')
 @Roles(Role.Admin)
@@ -69,8 +69,8 @@ export class BrandsController {
   async findOne(@Param('brandId', new ParseIntPipe()) brandId: number) {
     const brand = await this.brandsService.findOne(brandId);
     return {
-      code: 200,
-      status: true,
+      code: brand ? 200 : 404,
+      status: brand ? true : false,
       message: brand ? 'Brand successfully retrieved' : 'Brand not found',
       data: brand,
     };
