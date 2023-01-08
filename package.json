@@ -11,7 +11,7 @@
     "start": "cross-env NODE_ENV=development npm run migrate && nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "cross-env NODE_ENV=development npm run migrate && node dist/src/main",
     "migrate": "npx knex --knexfile knexfile.ts migrate:latest",
     "migrate:rollback": "npx knex --knexfile knexfile.ts migrate:rollback --all",
     "seed": "npx knex --knexfile knexfile.ts seed:run",
