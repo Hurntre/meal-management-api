@@ -34,18 +34,22 @@ $ npm run start:dev
 ### Endpoints
 
 ```bash
-# findAll brands
-GET http://localhost:3000/v1/api/brands
+# Create brand
+POST http://localhost:3000/v1/brands
 
-Authorization - 'Bearer {{adminToken}}'
+Data- '{ "name": "KFC" }'
 
-# findOne brand
-GET http://localhost:3000/v1/api/brands/:brandId
+Header - 'Content-Type: application/json'
+# FindAll brands
+GET http://localhost:3000/v1/brands
 
-Authorization - 'Bearer {{adminToken}}'
+
+# FindOne brand
+GET http://localhost:3000/v1/brands/:brandId
+
 
 # Create brand addon
-POST http://localhost:3000/v1/api/brands/:brandId/addons
+POST http://localhost:3000/v1/brands/:brandId/addons
 
 Data - '{
     "name": "Coleslaw",
@@ -55,30 +59,22 @@ Data - '{
 }'
 
 Header - 'Content-Type: application/json'
-Authorization - 'Bearer {{adminToken}}'
 
 # Add new brand addon category
-POST http://localhost:3000/v1/api/brands/:brandId/addon-categories
+POST http://localhost:3000/v1/brands/:brandId/addon-categories
 
-Data - '{
-    "name": "Coleslaw"
-}'
+Data - '{ "name": "Coleslaw" }'
 
 Header - 'Content-Type: application/json'
-Authorization - 'Bearer {{adminToken}}'
 
 # Get all brand addons
-GET http://localhost:3000/v1/api/brands/:brandId/addons
-
-Authorization - 'Bearer {{adminToken}}'
+GET http://localhost:3000/v1/brands/:brandId/addons
 
 # Get single brand addon
-GET http://localhost:3000/v1/api/brands/:brandId/addons/:addonId
-
-Authorization - 'Bearer {{adminToken}}'
+GET http://localhost:3000/v1/brands/:brandId/addons/:addonId
 
 # Update brand addon
-PATCH http://localhost:3000/v1/api/brands/:brandId/addons/:addonId
+PATCH http://localhost:3000/v1/brands/:brandId/addons/:addonId
 
 Data - '{
     "name": "Coleslaw",
@@ -88,21 +84,21 @@ Data - '{
 }'
 
 Header - 'Content-Type: application/json'
-Authorization - 'Bearer {{adminToken}}'
 
 # Delete brand addon
-DELETE http://localhost:3000/v1/api/brands/:brandId/addons/:addonId
+DELETE http://localhost:3000/v1/brands/:brandId/addons/:addonId
 
-Authorization - 'Bearer {{adminToken}}'
+
+# Authorization
+All request require authorization to be accessed. Dummy user authorization token can be accessed at 'src/utilities/DummyUsers.ts'
 
 ```
 
 ## Stay in touch
 
+```bash
 - Author - [Adefolaju Ariyo](https://adefolajuariyo.com)
 - LinkedIn - [Adefolaju Ariyo](https://www.linkedin.com/in/adefolaju-ariyo-527a49113//)
 - Twitter - [Adefolaju Ariyo](https://twitter.com/Hurntre)
-
-```
 
 ```

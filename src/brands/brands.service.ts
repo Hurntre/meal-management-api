@@ -17,12 +17,25 @@ export class BrandsService {
     @Inject('BrandModel') private brandModel: ModelClass<BrandModel>,
   ) {}
 
+  async create(name: string): Promise<BrandModel> {
+    return await this.brandModel
+      .query()
+      .insert({ name: name.toLocaleLowerCase() })
+      .returning('*');
+  }
   async findAll(): Promise<BrandModel[]> {
     return await this.brandModel.query();
   }
 
   async findOne(id: number): Promise<BrandModel> {
     return await this.brandModel.query().findById(id);
+  }
+
+  async findOneByName(name: string): Promise<BrandModel> {
+    return await this.brandModel
+      .query()
+      .where({ name: name.toLocaleLowerCase() })
+      .first();
   }
 
   async createAddon(props: Addon): Promise<AddonModel | boolean> {

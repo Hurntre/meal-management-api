@@ -8,6 +8,7 @@ import {
   Post,
   Patch,
 } from '@nestjs/common';
+import { BrandDto } from './dto/brand.dto';
 import { AddonDto } from './dto/addon.dto';
 import { AddonCategoryDto } from './dto/addon-category.dto';
 import { AddonUpdateDto } from './dto/addon-update.dto';
@@ -29,6 +30,38 @@ export class BrandsController {
       status: true,
       message: 'Brands successfully retrieved',
       data: brands,
+    };
+  }
+
+  @Post()
+  async create(@Body() createBrandDto: BrandDto) {
+    const existingBrand = await this.brandsService.findOneByName(
+      createBrandDto.name,
+    );
+
+    if (existingBrand) {
+      return {
+        code: 400,
+        status: false,
+        message: 'Brand already exists',
+      };
+    }
+
+    const brand = await this.brandsService.create(createBrandDto.name);
+
+    if (!brand) {
+      return {
+        code: 400,
+        status: false,
+        message: 'Unable to create brand. Contact Admin',
+      };
+    }
+
+    return {
+      code: 201,
+      status: true,
+      message: 'Brand created successfully',
+      data: brand,
     };
   }
 
