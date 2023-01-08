@@ -7,6 +7,10 @@ import { AddonModel } from './models/addon.model';
 import { AddonCategoryModel } from './models/addon-category.model';
 
 const models = [BrandModel, AddonModel, AddonCategoryModel];
+const environment = process.env.NODE_ENV;
+const developmentDb = process.env.DATABASE_URL;
+const testDb = process.env.TEST_DATABASE_URL;
+const dbURL = environment === 'development' ? developmentDb : testDb;
 
 const modelProviders = models.map((model) => {
   return {
@@ -22,7 +26,7 @@ const providers = [
     useFactory: async () => {
       const knex = Knex.knex({
         client: 'pg',
-        connection: process.env.DATABASE_URL,
+        connection: dbURL,
         debug: process.env.KNEX_DEBUG === 'true',
         ...knexSnakeCaseMappers(),
       });

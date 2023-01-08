@@ -9,7 +9,7 @@ export class BrandAddonsService {
     @Inject('AddonModel') private addonModel: ModelClass<AddonModel>,
   ) {}
 
-  async create(props: Addon) {
+  async create(props: Addon): Promise<Addon> {
     return await this.addonModel.query().insert(props).returning('*');
   }
 
