@@ -40,6 +40,7 @@ POST http://localhost:3000/v1/brands
 Data- '{ "name": "KFC" }'
 
 Header - 'Content-Type: application/json'
+
 # FindAll brands
 GET http://localhost:3000/v1/brands
 
