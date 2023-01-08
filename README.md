@@ -18,13 +18,19 @@ To use the application, you need to have PostgreSQL available locally. You then 
 $ npm install
 ```
 
+## Accessing the deployed app
+
+```bash
+The deployed API can be accessed at 'https://meal-management-api.onrender.com/v1'
+```
+
 ## Running the app locally
 
 ```bash
 $ npm run migrate && npm run seed
 $ npm run start
 
-API is accessible at `http://localhost:3000`
+API is accessible at `http://localhost:3000/v1`
 
 # watch mode
 $ npm run start:dev
