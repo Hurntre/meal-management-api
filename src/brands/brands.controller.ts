@@ -12,8 +12,8 @@ import { AddonDto } from './dto/addon.dto';
 import { AddonCategoryDto } from './dto/addon-category.dto';
 import { AddonUpdateDto } from './dto/addon-update.dto';
 import { BrandsService } from './brands.service';
-import { Roles } from 'src/utilities/decorators/roles.decorator';
-import { Role } from 'src/utilities/enums/role.enum';
+import { Roles } from 'src/auth/decorators/roles.decorator';
+import { Role } from 'src/auth/enums/role.enum';
 
 @Controller('brands')
 @Roles(Role.Admin)

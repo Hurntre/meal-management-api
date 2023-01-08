@@ -3,7 +3,7 @@ import { BrandsController } from './brands.controller';
 import { BrandsService } from './brands.service';
 import { BrandAddonsService } from './brand-addons.service';
 import { BrandAddonCategoriesService } from './brand-addon-categories.service';
-import { AuthorizationGuard } from 'src/utilities/Guards/authorization.guard';
+import { AuthorizationGuard } from 'src/auth/Guards/authorization.guard';
 import { APP_GUARD } from '@nestjs/core';
 
 @Global()
